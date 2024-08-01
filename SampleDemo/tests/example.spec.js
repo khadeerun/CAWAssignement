@@ -54,16 +54,15 @@ test.describe('Modify data.json and fill data into a website text box', () => {
     expect(updatedData).toEqual(expectedData);
 
     // Step 5: Navigate to the website
-    const url = 'https://testpages.herokuapp.com/styled/tag/dynamic-table.html'; // Replace with your actual URL
+    const url = 'https://testpages.herokuapp.com/styled/tag/dynamic-table.html'; 
     await page.goto(url);
 
     // Step 6: Fill the modified data into the text box
-    await page.locator('#jsondata').fill(JSON.stringify(updatedData)); // Adjust selector as needed
+    await page.locator('#jsondata').fill(JSON.stringify(updatedData));
     await page.locator('#refreshtable').click(); // Adjust selector as needed
     await page.waitForTimeout(5000);
 
-    // Verify if necessary (depends on your webpage and requirements)
-    // Example verification: Check if text box contains the modified data
+    //verify
     const filledValue = await page.inputValue('#jsondata'); // Adjust selector as needed
     expect(filledValue).toBe(JSON.stringify(updatedData));
   });
